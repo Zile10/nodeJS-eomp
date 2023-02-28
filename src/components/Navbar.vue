@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-dark">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Navbar</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
                     <router-link class="txt" to="/sign_in">login</router-link>
                   </li>
                   <li class="nav-item">
-                    <router-link class="txt" to="/">register</router-link>
+                    <router-link class="txt" to="/userProfile">register</router-link>
                   </li>
                 </ul>
               </div>
@@ -38,8 +38,11 @@ export default {
 .txt {
     text-decoration: none;
 }
-.navbar {
-  background-color: transparent !important;
+
+.body {
+  background-color: #D4C4C4B2 !important;
+  ;
+  position: fixed;
 }
     .nav-item {
         background: grey;

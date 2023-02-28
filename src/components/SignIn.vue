@@ -3,8 +3,8 @@
         <div class="cards" style="width: 18rem;">
             <div class="card-body ">
                 <a class="signIn"><strong>login</strong></a>
-                <div class="userInput"> <input type="text" required="required"><span class="user">Username</span></div>
-                <div class="userInput"> <input type="password" required="required"><span class="user">Password</span></div>
+                <div class="userInput"> <input type="text" required="required"><span class="user"><strong>Username</strong></span></div>
+                <div class="userInput"> <input type="password" required="required"><span class="user"><strong>Password</strong></span></div>
                 <button class="btn btn-primary" type="submit">login</button>
             </div>
           </div>
@@ -35,7 +35,11 @@ export default {
     flex-direction: column;
     gap: 35px;
     border-radius: 6px 36px 6px 36px;
-    background-color: grey;
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    box-shadow: 23px 23px 46px #bebebe,
+               -23px -23px 46px #ffffff;
+    box-shadow: 5px 15px;
 
   }
   .userInput {
@@ -61,11 +65,11 @@ export default {
     position: absolute;
     left: 0;
     transform: translateY(-4px);
-    margin-left: 10px;
+    margin-left: 20px;
     padding: 10px;
     pointer-events: none;
-    font-size: 12px;
-    color: white;
+    font-size: large;
+    color: black;
     text-transform: uppercase;
     transition: 0.5s;
     letter-spacing: 3px;
@@ -80,7 +84,7 @@ export default {
     background: black;
     letter-spacing: 0.2em;
     color: #fff;
-    border: 2px;
+    border: zpx;
   }
   
   .userInput input:valid,

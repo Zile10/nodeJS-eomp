@@ -4,12 +4,15 @@
 </template>
 
 <style>
+
+
 #app {
   font-family: 'Tilt Warp', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: white;
+  background-color: #f7e1e1;
+  height: 100vh;
 }
 
 nav {
