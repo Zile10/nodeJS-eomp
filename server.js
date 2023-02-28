@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './views/index.html'));
 })
 // Use router to handle product and user routes
-app.use('/users', router.userRoutes)
+app.use('/users', router.userRoutes);
 app.use('/products', router.productRoutes);
 
 

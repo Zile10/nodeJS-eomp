@@ -5,15 +5,32 @@ const bodyParser = require('body-parser');
 const User = require('../models/userModel');
 const user = new User();
 
-function getUsers(req, res) {
-  try {
-    user.getUsers(req, res);
-  } catch (error) {
-    console.log(error);
-    res.status(400).send(error);
-  }
-}
-
 module.exports = {
-  getUsers
+  getUsers(req, res) {
+    try {
+      user.getUsers(req, res);
+    } catch (error) {
+      console.log(error);
+      res.status(400)
+      res.send(error);
+    }
+  },
+  register(req, res) {
+    try {
+      user.createUser(req, res);
+    } catch (error) {
+      console.log(error);
+      res.status(400)
+      res.send(error)
+    }
+  },
+  login(req, res) {
+    try {
+      user.login(req, res)
+    } catch (error) {
+      console.log(error);
+      res.status(400)
+      res.send(error)
+    }
+  }
 }

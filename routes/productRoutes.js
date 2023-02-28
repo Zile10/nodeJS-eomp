@@ -6,4 +6,12 @@ router.get('/', (req, res) => {
   controller.getProducts(req, res)
 });
 
+router.get('/:id', (req, res) => {
+  controller.getProduct(req, res)
+})
+
+router.post('/', (req, res) => {
+  controller.createProduct(req, res)
+})
+
 module.exports = router
