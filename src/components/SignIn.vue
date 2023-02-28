@@ -6,6 +6,9 @@
                 <div class="userInput"> <input type="text" required="required"><span class="user"><strong>Username</strong></span></div>
                 <div class="userInput"> <input type="password" required="required"><span class="user"><strong>Password</strong></span></div>
                 <button class="btn btn-primary" type="submit">login</button>
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="userProfile"
+                  class="fw-bold text-body"><u>Login here</u></a></p>
+
             </div>
           </div>
     </div>
