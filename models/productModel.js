@@ -15,9 +15,16 @@ class Product {
     });
   }
   createProduct(req, res) {
-    con.query("INSERT INTO products set ? ", [req.body], (err, result) => {
+    con.query("INSERT INTO products set ? ", [req.body], (err) => {
       if (err) throw err;
-      res.send(req.body)
+      res.send([req.body, {msg: "Product added successfully"}])
+    })
+  }
+  updateProduct(req, res) {
+    con.query('UPDATE products SET ? WHERE productID = ?', [req.body, req.params.id], (err) => {
+      if (err) throw err;
+      res.send([req.body, {msg: "Product updated successfully"}])
+
     })
   }
 }

@@ -11,7 +11,7 @@ class User {
     });
   }
   getUser(req, res) {
-    con.query("SELECT * FROM users WHERE userID = ?", [req.params.userID], (err, result) => {
+    con.query("SELECT * FROM users WHERE userID = ?;", [req.params.id], (err, result) => {
       if (err) throw err;
       res.send(result);
     });
@@ -19,7 +19,7 @@ class User {
   async createUser(req, res) {
     const userInfo = req.body;
     userInfo.pass = await hash(userInfo.pass, 15)
-    con.query("INSERT INTO users SET ?", [userInfo], (err) => {
+    con.query("INSERT INTO users SET ?;", [userInfo], (err) => {
       if (err) {
         res.status(401)
         res.json({ err });
@@ -34,7 +34,7 @@ class User {
     const pass = req.body.pass
 
     con.query(
-      `SELECT firstName, lastName, email, pass, roleID FROM users WHERE email = '${email}'`,
+      `SELECT firstName, lastName, email, pass, roleID FROM users WHERE email = '${email}';`,
       async (err, loginData) => {
         if (err) throw err;
         if (loginData == null || !loginData.length) {
@@ -66,8 +66,23 @@ class User {
         };
       }
     )
-
   };
+  async updateUser(req, res) {
+    const userInfo = req.body
+    if (userInfo.pass) {
+      userInfo.pass = await hash(userInfo.pass, 15)
+    }
+    con.query('UPDATE users SET ? WHERE userID = ?;', [userInfo, req.params.id], (err) => {
+      if (err) throw err;
+      res.send([req.body, {msg: "User updated successfully"}])
+    })
+  };
+  deleteUser(req, res) {
+    con.query('DELETE FROM users WHERE userID = ?;', [req.params.id], (err) => {
+      if (err) throw err;
+      res.send([req.body, {msg: "User Deleted Successfully"}])
+    })
+  }
 };
 
 module.exports = User;

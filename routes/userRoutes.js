@@ -5,11 +5,20 @@ const controller = require('../controllers/userController');
 router.get('/', (req, res) => {
   controller.getUsers(req, res)
 });
+router.get('/:id', (req, res) => {
+  controller.getUser(req, res)
+});
 router.post('/register', (req, res) => {
   controller.register(req, res)
 });
 router.post('/login', (req, res) => {
   controller.login(req, res)
+});
+router.patch('/:id', (req, res) => {
+  controller.updateUser(req, res)
+});
+router.delete('/:id', (req, res) => {
+  controller.deleteUser(req, res)
 });
 
 module.exports = router;

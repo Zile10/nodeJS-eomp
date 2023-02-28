@@ -13,5 +13,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   controller.createProduct(req, res)
 })
+router.patch('/:id', (req, res) => {
+  controller.updateProduct(req, res)
+})
 
 module.exports = router

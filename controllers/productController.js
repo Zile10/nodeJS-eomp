@@ -27,5 +27,13 @@ module.exports = {
       console.log(error);
       res.status(400).send(error);
     }
-  }
+  },
+  updateProduct(req, res) {
+    try {
+      product.updateProduct(req, res)
+    } catch (error) {
+      console.log(error);
+      res.status(400).send(error);
+    }
+  },
 }
