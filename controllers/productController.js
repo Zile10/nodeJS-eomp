@@ -36,4 +36,12 @@ module.exports = {
       res.status(400).send(error);
     }
   },
+  deleteProduct(req, res) {
+    try {
+      product.deleteProduct(req, res)
+    } catch (error) {
+      console.log(error);
+      res.status(400).send(error);
+    }
+  },
 }

@@ -16,5 +16,8 @@ router.post('/', (req, res) => {
 router.patch('/:id', (req, res) => {
   controller.updateProduct(req, res)
 })
+router.delete('/:id', (req, res) => {
+  controller.deleteProduct(req, res)
+})
 
 module.exports = router

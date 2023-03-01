@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   controller.getUser(req, res)
 });
-router.post('/register', (req, res) => {
+router.post('/', (req, res) => {
   controller.register(req, res)
 });
 router.post('/login', (req, res) => {

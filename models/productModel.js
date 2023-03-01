@@ -23,8 +23,14 @@ class Product {
   updateProduct(req, res) {
     con.query('UPDATE products SET ? WHERE productID = ?', [req.body, req.params.id], (err) => {
       if (err) throw err;
-      res.send([req.body, {msg: "Product updated successfully"}])
+      res.send([req.body, {msg: "Product Updated Successfully"}])
 
+    })
+  }
+  deleteProduct(req, res) {
+    con.query('DELETE FROM products WHERE productID = ?;', [req.params.id], (err) => {
+      if (err) throw err;
+      res.send([req.body, {msg: "Product Deleted Successfully"}])
     })
   }
 }
