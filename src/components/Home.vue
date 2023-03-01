@@ -15,6 +15,7 @@
 
 
 #head {
+    
     position: relative;
     margin-right: 40%;
     justify-content: center;

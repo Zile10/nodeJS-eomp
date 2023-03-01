@@ -1,10 +1,15 @@
 <template  >
     <div>
-        <footer>
+        /*<footer class="container-fluid fixed-bottom ">
+            <div class="info">
+                <p class="text-muted">Adress: Corlie Road, South Field</p>
+                <p>Ph: 063 681 3151</p>
+                <p>Email: johnnoad04@gmail.com</p>
+              </div>
             <p class="text-muted"><i class="bi bi-geo-alt-fill"></i>24 New Rest, Gugulethu,</p>
-            <a href="https://twitter.com/MzolisaSakhe" class="text-dark" target="_blank"> <i class="fa-brands fa-twitter"></i>Twitter</a>
+    
             <p class="text-dark text-success">Copyright &copy; 2023 by Sakhe Mzolisa & John-Bruce Node</p>
-            </footer>
+            </footer>/*
     </div>
 </template>
 <script>

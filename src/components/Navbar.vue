@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-expand-lg bg-body-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
+              <a class="navbar-brand" href="#">The Watchmen</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -36,7 +36,24 @@ export default {
 </script>
 <style>
 .txt {
-    text-decoration: none;
+  text-decoration: none;
+  transition: all 0.2s;
+  color: #000;
+  position: relative;
+}
+.txt:hover {
+  /*text-decoration: underline;*/
+  /*border-bottom: 2px solid rgb(58, 68, 44);*/
+}
+
+.txt:hover::after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background-color: rgb(58, 68, 44);
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .body {
@@ -44,7 +61,7 @@ export default {
   ;
   position: fixed;
 }
-    .nav-item {
+    /*.nav-item {
         background: grey;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         height: 25px;
@@ -53,5 +70,5 @@ export default {
         top: 34px;
         border-radius: 20px;
 
-    }
+    }*/
 </style>
