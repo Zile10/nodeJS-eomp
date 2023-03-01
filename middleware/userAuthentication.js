@@ -17,10 +17,12 @@ function createToken(user) {
 
 function verifyToken(req, res, next) {
   try {
-    const token = req.cookies["LegitUser"] !== null ? req.cookies["LegitUser"] :
-    "Please, login using a valid account" ;
-    if (token !== "Please, login using a valid account") {
-      if (jwt.verify(token, process.env.SECRET_KEY)) {
+    let jwtoken;
+    if (req.cookies["realUser"] !== null) {
+      jwtoken = req.cookies["realUser"]
+    } else jwtoken = "Please, login using a valid account" ;
+    if (jwtoken !== "Please, login using a valid account") {
+      if (jwt.verify(jwtoken, process.env.SECRET_KEY)) {
         req.authenticated = true;
         next();
       } else {
