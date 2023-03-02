@@ -15,7 +15,7 @@
                     <router-link class="txt" to="/products">Products</router-link>
                   </li>
                   <li class="nav-item">
-                    <router-link class="txt" to="/">admin</router-link>
+                    <router-link class="txt" to="/admin">admin</router-link>
                   </li>
                   <li class="nav-item">
                     <router-link class="txt" to="/sign_in">login</router-link>

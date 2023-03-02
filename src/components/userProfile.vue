@@ -6,22 +6,22 @@
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                   <div class="card-body p-4 p-md-5">
                     <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-                    <form>
+                    <form class="form" @submit.prevent="register">
         
                       <div class="row">
                         <div class="col-md-6 mb-4">
         
                           <div class="form-outline">
-                            <input type="text" id="userName" class="form-control form-control-lg" required="required">
-                            <label class="form-label" for="userName">UserName</label>
+                            <input type="text" id="userName" class="form-control form-control-lg" required="required" placeholder="UserName">
+                            <label class="form-label" for="userName" v-modal="payload.username"></label>
                           </div>
         
                         </div>
                         <div class="col-md-6 mb-4">
         
                           <div class="form-outline">
-                            <input type="text" id="firstName" class="form-control form-control-lg" required="required">
-                            <label class="form-label" for="firstName">FirstName</label>
+                            <input type="text" id="firstName" class="form-control form-control-lg" required="required" placeholder="firstName" >
+                            <label class="form-label" for="firstName" v-modal="payload.firstName"></label>
                           </div>
         
                         </div>
@@ -31,53 +31,57 @@
                         <div class="col-md-6 mb-4 d-flex align-items-center">
         
                           <div class="form-outline datepicker w-100">
-                            <input type="text" class="form-control form-control-lg" id="LastName" required="required">
-                            <label for="lastName" class="form-label">LastName</label>
+                            <input type="text" class="form-control form-control-lg" id="LastName" required="required" placeholder="lastName" >
+                            <label for="lastName" class="form-label" v-modal="payload.lastName"></label>
                           </div>
         
                         </div>
                         <div class="col-md-6 mb-4">
         
-                          <h6 class="mb-2 pb-1">Gender: </h6>
-        
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                              value="option1" checked>
-                            <label class="form-check-label" for="femaleGender">Female</label>
-                          </div>
-        
-                          <div class="form-check form-check-inline" required="required">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                              value="option2" />
-                            <label class="form-check-label" for="maleGender">Male</label>
-                          </div>
-        
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                              value="option3" />
-                            <label class="form-check-label" for="otherGender">Other</label>
+                          <div class="form-outline">
+                            <input type="text" id="gender" class="form-control form-control-lg" required="required"  placeholder="Gender" >
+                            <label class="form-label" for="gender" v-modal="payload.gender"></label>
                           </div>
         
                         </div>
+                      </div>
+
+                      <div class="col-md-6 mb-4 pb-2">
+        
+                        <div class="form-outline">
+                          <input type="tel" id="cellNumber n " class="form-control form-control-lg" required="required"  placeholder="CellNumber" >
+                          <label class="form-label" for="cellNumber" v-modal="payload.cellNumber"></label>
+                        </div>
+      
                       </div>
         
                       <div class="row">
                         <div class="col-md-6 mb-4 pb-2">
         
                           <div class="form-outline">
-                            <input type="email" id="emailAddress" class="form-control form-control-lg" required="required">
-                            <label class="form-label" for="emailAddress">Email</label>
+                            <input type="email" id="emailAddress" class="form-control form-control-lg" required="required"  placeholder="Email">
+                            <label class="form-label" for="emailAddress" v-modal="payload.email"></label>
                           </div>
         
                         </div>
                         <div class="col-md-6 mb-4 pb-2">
         
                           <div class="form-outline">
-                            <input type="password" id="password" class="form-control form-control-lg" required="required">
-                            <label class="form-label" for="password">Password</label>
+                            <input type="password" id="password" class="form-control form-control-lg" required="required" placeholder="Password">
+                            <label class="form-label" for="password" v-modal="payload.pass"></label>
                           </div>
         
                         </div>
+
+                        <div class="col-md-6 mb-4 pb-2">
+
+                          <div class="form-outline datepicker">
+                            <input type="text" class="form-control" id="exampleDatepicker1" placeholder="select a date">
+                            <label for="exampleDatepicker1" class="form-label" v-modal="payload.joinDate"></label>
+                          </div>
+        
+                        </div>
+
                       </div>  
                       <div class="mt-4 pt-2">
                         <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
@@ -94,9 +98,39 @@
       </div>
 </template>
 <script>
+import {useStore} from 'vuex'
+import {computed} from '@vue/runtime-core'
+// import axios from "axios";
+
 export default {
-    
-}
+    setup() {
+      const payload = {
+        username: "",
+            firstName: "",
+            lastName: "",
+            gender: "",
+            cellNumber: "",
+            email: "",
+            pass: "",
+            roleID: 3,
+            joinDate: ""
+      };
+      const store = useStore();
+      const register = ()=> {
+        store.dispatch("register", payload);
+          // Refresh
+          store.dispatch("fetchUsers");
+          console.log(payload.joinDate);
+      }
+      const userMsg = 
+      computed( ()=>store.state.message )
+      return {
+        payload,
+        userMsg,
+        register
+      }
+},
+};
 </script>
 <style scoped>
 

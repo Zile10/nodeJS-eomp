@@ -8,7 +8,8 @@ export default createStore({
     user: null,
     products: null,
     product: null,
-    showSpinner: true
+    showSpinner: true,
+    message: null,
   },
   getters: {
   },
@@ -44,7 +45,7 @@ export default createStore({
       }
     },
     async register(context, payload) {
-      const res = await axios.post(`${Watchmen}register`, payload)
+      const res = await axios.post(`${Watchmen}users`, payload)
       const {msg, err} = await res.data;
       if(msg) {
         context.commit('setMessage', msg);
@@ -53,14 +54,23 @@ export default createStore({
       }
     }, 
     async fetchUsers(context, payload) {
-      const res = await axios.post(`${Watchmen}users`, payload);
-      const {msg, err} = await res.data;
-      if(msg) {
-        context.commit('setUsers', msg);
+      const res = await axios.get(`${Watchmen}users`, payload);
+      console.log(await res.data);
+      if(res.data !== undefined) {
+        context.commit('setUsers', res.data);
       }else {
-        context.commit('setUsers', err);
+        context.commit('setUsers', res.data);
       }
   },
+  async fetchUserById(context, id) {
+    const res = await axios.get(`${Watchmen}users/${id}`);
+    const {results, err} = await res.data;
+    if(results) {
+      context.commit('setUsers', results);
+    }else {
+      context.commit('setMessage', err);
+    }
+},
   async updateUser(context, payload) {
     const res = await axios.post(`${Watchmen}user`, payload);
     const {msg, err} = await res.data;
@@ -76,7 +86,14 @@ export default createStore({
     if(res.data !== undefined){
       context.commit('setProducts', res.data)
     } else {context.commit('setProducts', res.data);}
-  }
+  },
+  async addProducts(context, payload){
+    const res = await axios.post(`${Watchmen}products`, payload);
+    const {result, err} = await res.data;
+    if(result){
+      context.commit('setMessage', result)
+    } else {context.commit('setMessage', err);}
+  },
 },
   modules: {
   }
