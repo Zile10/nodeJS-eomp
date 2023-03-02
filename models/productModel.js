@@ -2,6 +2,7 @@ const con = require('../config')
 
 class Product {
   getProducts(req, res) {
+    req.user
     con.query("SELECT productID, productName, productDescription, productPrice, stock, imgURL FROM products", (err, result) => {
       if (err) throw err;
       res.status(200);

@@ -1,4 +1,4 @@
-1. Research JSONWebToken package.
-2. Implement user Authentication to acces products & admin auth for Admin page
+------------1. Research JSONWebToken package.
+------------2. Implement user Authentication to access products & admin auth for Admin page
 3. Routes HTML view
 4. Review rubrics and brief again
