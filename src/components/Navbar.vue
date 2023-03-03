@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-expand-lg bg-body-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">The Watchmen</a>
+              <a class="navbar-brand" href="#">The <span class="watchmen">Watchmen</span></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -15,13 +15,13 @@
                     <router-link class="txt" to="/products">Products</router-link>
                   </li>
                   <li class="nav-item">
-                    <router-link class="txt" to="/admin">admin</router-link>
+                    <router-link class="txt" to="/admin">Admin</router-link>
                   </li>
                   <li class="nav-item">
-                    <router-link class="txt" to="/sign_in">login</router-link>
+                    <router-link class="txt" to="/sign_in">Login</router-link>
                   </li>
                   <li class="nav-item">
-                    <router-link class="txt" to="/userProfile">register</router-link>
+                    <router-link class="txt" to="/userProfile">Register</router-link>
                   </li>
                 </ul>
               </div>
@@ -35,17 +35,28 @@ export default {
 }
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Catamaran&family=Cormorant+Garamond&family=Genos&family=Montserrat:wght@500&display=swap');
+nav {
+  background-color: #ffeeee;
+  box-shadow: 0 0 5px -3px black;
+  margin-bottom: 20px;
+}
+.navbar-brand {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 6px -3px black;
+  
+}
+.watchmen {
+  color: crimson;
+}
 .txt {
   text-decoration: none;
   transition: all 0.2s;
   color: #000;
   position: relative;
 }
-.txt:hover {
-  /*text-decoration: underline;*/
-  /*border-bottom: 2px solid rgb(58, 68, 44);*/
-}
-
 .txt:hover::after {
   content: '';
   height: 2px;

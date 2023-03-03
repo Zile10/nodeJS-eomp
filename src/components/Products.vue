@@ -1,35 +1,43 @@
-<template>
+<template lang="">
     <div>
-        <div class="container">
-            <div class="row gap-4 mx-4 d-sm-flex justify-content-center">
-        <div class="card" style="width: 18rem;" v-for="product in products" :key="product">
-            <img src="" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title">{{product.productName}}</h5>
-              <p class="card-text">{{ product.productDescription}}</p>
-              <p class="card-text">{{ product.productPrice}}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        </div>
+        <h4 class="text-bg-info-center">Products</h4>
+        <table class="table table-dark"><thead>
+              <tr>
+                <th scope="col">productID</th>
+                <th scope="col">productName</th>
+                <th scope="col">productDescription</th>
+                <th scope="col">productPrice</th>
+                <th scope="col">stock</th>
+                <th scope="col">imgURL</th>
+              </tr>
+            </thead>
+            <tbody v-for="stock in products" :key="stock">
+              <tr>
+                <td>{{stock.productID}}</td>
+                <td>{{stock.prodcutName}}</td>
+                <td>{{stock.productDescription}}</td>
+                <td>{{stock.productPrice}}</td>
+                <td>{{stock.stock}}</td>
+                <td>{{stock.cellNumb}}</td>
+              </tr>
+            </tbody>
+          </table>
     </div>
 </template>
 <script>
 import { useStore } from 'vuex';
 import { computed } from '@vue/runtime-core';
-
 export default {
     setup(){
         const store = useStore();
         store.dispatch("fetchProducts");
         let products = computed(() => store.state.products)
         return{
-            products,
+          
+          products,
         }
     },
-    name : 'products_cust',
-
+    name: 'product_component'
 }
 </script>
 <style lang="">

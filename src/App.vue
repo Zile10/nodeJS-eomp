@@ -5,7 +5,9 @@
 </template>
 
 <style>
-
+div.view {
+  background-color: #f7e1e1;
+}
 
 #app {
   font-family: 'Tilt Warp', sans-serif;
