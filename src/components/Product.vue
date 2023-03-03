@@ -1,7 +1,7 @@
 <template lang="">
     <div>
-        <h4 class="text-bg-info-center">Users</h4>
-        <table class="table">            <thead>
+        <h4 class="text-bg-info-center">Products</h4>
+        <table class="table table-dark">            <thead>
               <tr>
                 <th scope="col">productID</th>
                 <th scope="col">productName</th>
@@ -11,14 +11,14 @@
                 <th scope="col">imgURL</th>
               </tr>
             </thead>
-            <tbody v-for="cust in users" :key="cust">
+            <tbody v-for="stock in products" :key="stock">
               <tr>
-                <td>{{cust.productID}}</td>
-                <td>{{cust.prodcutName}}</td>
-                <td>{{cust.productDescription}}</td>
-                <td>{{cust.productPrice}}</td>
-                <td>{{cust.stock}}</td>
-                <td>{{cust.cellNumb}}</td>
+                <td>{{stock.productID}}</td>
+                <td>{{stock.prodcutName}}</td>
+                <td>{{stock.productDescription}}</td>
+                <td>{{stock.productPrice}}</td>
+                <td>{{stock.stock}}</td>
+                <td>{{stock.cellNumb}}</td>
               </tr>
             </tbody>
           </table>
@@ -33,9 +33,11 @@ export default {
         store.dispatch("fetchProducts");
         let products = computed(() => store.state.products)
         return{
-            products,
+          
+          products,
         }
     },
+    name: 'product_component'
 }
 </script>
 <style lang="">

@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <h4 class="text-bg-info-center">Users</h4>
-        <table class="table">           
+        <table class="table table-dark">           
              <thead>
               <tr>
                 <th scope="col">UserID</th>

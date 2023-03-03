@@ -85,7 +85,10 @@ export default createStore({
     console.log(await res.data)
     if(res.data !== undefined){
       context.commit('setProducts', res.data)
-    } else {context.commit('setProducts', res.data);}
+      context.commit('setSpinner', false)
+    } else {context.commit('setProducts', res.data)
+      context.commit('setSpinner', true);
+    }
   },
   async addProducts(context, payload){
     const res = await axios.post(`${Watchmen}products`, payload);

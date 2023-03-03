@@ -13,9 +13,17 @@
 </script>
 <style scoped>
 
-
+.home {
+    background-image: url(https://i.postimg.cc/sXHf1Gd1/landscape-1460054425-clock.gif);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
 #head {
-    
     position: relative;
     margin-right: 40%;
     justify-content: center;
