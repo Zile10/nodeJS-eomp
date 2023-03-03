@@ -34,7 +34,7 @@ class User {
     const pass = req.body.pass
 
     con.query(
-      `SELECT firstName, lastName, email, pass, roleID FROM users WHERE email = '${email}';`,
+      `SELECT firstName, lastName, email, pass, userRole FROM users WHERE email = '${email}';`,
       async (err, loginData) => {
         if (err) throw err;
         if (loginData == null || !loginData.length) {
