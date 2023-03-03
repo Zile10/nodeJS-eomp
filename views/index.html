@@ -16,11 +16,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="">Home</a>
+          <li class="nav-item active-li">
+            <a class="nav-link active" target="_blank" href="https://nodejs-eomp.onrender.com/">Backend - Render</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link " aria-current="page" target="_blank" href="http://vuejsfullstack-omp.firebaseapp.com">Frontend - Firebase</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" target="_blank" href="https://github.com/Zile10/nodeJS-eomp.git">Repo - GitHub</a>
           </li>
         </ul>
       </div>
@@ -173,9 +176,29 @@
     div.bshad {
       box-shadow: 0 0 5px 1px black;
     }
-    /* h2 {
-      text-shadow: 0 0 8px rgba(0, 0, 0, 0.45), 0 0 4px white;
-    } */
+    li {
+      margin: 0 10px;
+      background-color: #222;
+      border-radius: 50px;
+      box-shadow: 0 0 5px 1px black;
+      border: 2px solid white;
+    }
+    li>* {
+      color: #fff !important;
+      font-weight: bolder !important;
+      
+    }
+    .active-li {
+      border: 2px solid black;
+      background-color: #ddd;
+    }
+    .active {
+      color: #000 !important;
+    }
+    li:hover {
+      filter: invert(100%);
+      scale: 1.1;
+    }
   </style>
 
   <!-- JS -->

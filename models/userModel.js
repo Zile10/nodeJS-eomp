@@ -47,7 +47,7 @@ class User {
               email,
               pass,
             })
-            res.cookie("LegitUser", jwToken, {
+            res.cookie("realUser", jwToken, {
               maxAge: 3600000,
               httpOnly: true,
             });
